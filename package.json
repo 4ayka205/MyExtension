@@ -1,0 +1,56 @@
+{
+  "name": "myextension",
+  "displayName": "MyExtension",
+  "description": "",
+  "version": "0.0.1",
+  "engines": {
+    "vscode": "^1.99.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [],
+  "main": "./out/extension.js",
+  "contributes": {
+    "markdown.previewScripts": [
+      "./scripts/preview.js",
+      "https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs",
+      "./scripts/mermaid-init.js"
+    ],
+    "markdown.previewStyles": [
+      "./styles/github-style.css"
+    ],
+    "markdown.markdownItPlugins": true,
+    "commands": [
+      {
+        "command": "myextension.helloWorld",
+        "title": "Hello World"
+      }
+    ]
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "pretest": "npm run compile && npm run lint",
+    "lint": "eslint src",
+    "test": "vscode-test"
+  },
+  "devDependencies": {
+    "@types/markdown-it-container": "^2.0.10",
+    "@types/markdown-it-emoji": "^3.0.1",
+    "@types/mocha": "^10.0.10",
+    "@types/node": "20.x",
+    "@types/vscode": "^1.99.0",
+    "@typescript-eslint/eslint-plugin": "^8.31.1",
+    "@typescript-eslint/parser": "^8.31.1",
+    "@vscode/test-cli": "^0.0.10",
+    "@vscode/test-electron": "^2.5.2",
+    "eslint": "^9.25.1",
+    "markdown-it-container": "^4.0.0",
+    "typescript": "^5.8.3"
+  },
+  "dependencies": {
+    "markdown-it-emoji": "^2.0.0"
+  }
+}
